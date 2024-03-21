@@ -2,20 +2,25 @@ import fs from "fs";
 import path from "path";
 import { createServer } from "node:http";
 import { createSchema, createYoga } from "graphql-yoga";
+import { PubSub } from "graphql-subscriptions";
+
 import { resolvers } from "./resolvers";
 import { db } from "./db";
 
 const schemaPath = path.join(__dirname, "./schema/schema.graphql");
 const typeDefs = fs.readFileSync(schemaPath, "utf8");
 
+const pubsub = new PubSub();
+
 const yoga = createYoga({
   schema: createSchema({
-    typeDefs: /* GraphQL */ typeDefs,
+    typeDefs /* GraphQL */,
 
-    resolvers: resolvers,
+    resolvers,
   }),
   context: {
     db,
+    pubsub,
   },
   maskedErrors: {
     maskError: (error, message, isDev) => {

@@ -39,34 +39,34 @@ export const posts = [
     id: "12",
     title: "Programming Music",
     body: "",
-    published: false,
+    published: true,
     author: "2",
   },
 ];
 
 export const comments = [
   {
-    id: "15",
-    text: "This is a comment for id 15",
+    id: "102",
+    text: "This worked well for me. Thanks!",
+    author: "3",
+    post: "10",
+  },
+  {
+    id: "103",
+    text: "Glad you enjoyed it.",
     author: "1",
     post: "10",
   },
   {
-    id: "16",
-    text: "This is a comment for id 16",
-    author: "1",
+    id: "104",
+    text: "This did no work.",
+    author: "2",
     post: "11",
   },
   {
-    id: "17",
-    text: "This is a comment for id 17",
-    author: "2",
-    post: "12",
-  },
-  {
-    id: "18",
-    text: "This is a comment for id 18",
-    author: "3",
+    id: "105",
+    text: "Nevermind. I got it to work.",
+    author: "1",
     post: "12",
   },
 ];
